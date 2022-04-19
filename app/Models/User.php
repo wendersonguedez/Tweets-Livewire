@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Recuperando todos os tweets do usuário.
+    public function tweets()
+    {
+        return $this->hasMany(Tweet::class);
+    }
 }
