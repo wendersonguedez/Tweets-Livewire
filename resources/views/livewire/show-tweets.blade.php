@@ -1,9 +1,18 @@
 <div>
     Show Tweets
 
-    <p>{{ $message }}</p>
+    <p>{{ $content }}</p>
 
-    <input type="text" name="message" id="message" wire:model="message">
+    {{-- Submetendo o envio do formulário para o método create(). prevent impede a ação default daquele elemento, no caso do formulário, impede o reload da página. --}}
+    <form method="POST" wire:submit.prevent="create">
+        <input type="text" name="content" id="content" wire:model="content">
+        <button type="submit">Criar tweet</button>
+        <br>
+        {{-- Caso exista um erro em content, ele será exibido --}}
+        @error('content')
+            {{ $message }}
+        @enderror
+    </form>
 
     <hr>
 
