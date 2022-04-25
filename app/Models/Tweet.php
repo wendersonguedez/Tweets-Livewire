@@ -10,7 +10,7 @@ class Tweet extends Model
     use HasFactory;
 
     // Indicando quais colunas podem ser preenchidas ao passar o método create().
-    protected $fillable = ['content'];
+    protected $fillable = ['content', 'user_id'];
 
     // Recuperando o usuário autor de um tweet.
     public function user()
